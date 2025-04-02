@@ -69,7 +69,7 @@ Desenvolver uma aplicação web que:
 
 ### **1. Repositório no GitHub**
 - Faça um **fork** deste repositório para sua conta pessoal
-- Mantenha o repositório **privado** durante o desenvolvimento
+- Mantenha o repositório **público** durante o desenvolvimento
 - Nome do repositório: `spotify-playlist-builder-[seu-nome]`
 
 ### **2. Padrão de Commits**
