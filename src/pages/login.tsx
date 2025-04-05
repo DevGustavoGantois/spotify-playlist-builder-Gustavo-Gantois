@@ -28,7 +28,7 @@ export default function Login() {
         <figure>
           <button
         className="cursor-pointer flex items-center justify-center gap-2 w-full mt-6"
-        onClick={() => signIn("spotify", {callbackUrl: "/home"})}
+        onClick={() => signIn("spotify", {callbackUrl: "/"})}
         >
           <FaSpotify size={32} className="text-green-500" />
           Entrar com Spotify
