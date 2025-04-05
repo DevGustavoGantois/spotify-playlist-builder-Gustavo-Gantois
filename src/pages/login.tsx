@@ -1,39 +1,40 @@
-'use client'
+import { signIn } from 'next-auth/react'
+import Image from 'next/image'
+import { FaSpotify } from 'react-icons/fa'
+import styles from '@/styles/Login.module.css'
 
-import { signIn } from "next-auth/react"
-import Image from "next/image"
-import { FaSpotify } from "react-icons/fa"
-
-export default function LoginPage() {
+export default function Page() {
   return (
-    <section className="relative min-h-screen">
-      <div className="grid grid-cols-1 xl:grid-cols-2 h-full">
-        <div className="hidden xl:block relative w-full h-screen">
+    <section className={styles.section}>
+      <div className={styles.gridContainer}>
+        <div className={styles.imageWrapper}>
           <Image
+            className={styles.bgImage}
             src="/BgImageLogin.svg"
+            width={800}
+            height={600}
             alt="Imagem de fundo do login"
-            fill
-            priority
-            className="object-cover"
           />
         </div>
 
-        <div className="flex items-center justify-center p-8">
-          <div className="w-full max-w-xl bg-white/5 p-8 rounded-xl shadow-lg backdrop-blur-md">
-            <header className="text-center mb-6">
-              <h1 className="text-4xl font-bold mb-2">Login</h1>
-              <p className="text-gray-300">
-                Faça login com sua conta do Spotify para acessar a plataforma.
+        <div className={styles.center}>
+          <div className={styles.card}>
+            <div className={styles.cardHeader}>
+              <h1 className={styles.title}>Login</h1>
+              <p className={styles.description}>
+                Acesse nossa plataforma clicando no botão abaixo.
               </p>
-            </header>
+            </div>
 
-            <button
-              className="flex items-center justify-center gap-3 w-full py-3 px-6 rounded-lg bg-green-500 hover:bg-green-600 text-white font-semibold transition duration-200"
-              onClick={() => signIn("spotify", { callbackUrl: "/" })}
-            >
-              <FaSpotify size={24} />
-              Entrar com Spotify
-            </button>
+            <div className={styles.cardContent}>
+              <button
+                className={styles.spotifyButton}
+                onClick={() => signIn('spotify', { callbackUrl: '/' })}
+              >
+                <FaSpotify size={32} className={styles.spotifyIcon} />
+                Entrar com Spotify
+              </button>
+            </div>
           </div>
         </div>
       </div>
