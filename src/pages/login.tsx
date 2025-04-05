@@ -1,43 +1,42 @@
-import { signIn } from "next-auth/react";
-import Image from "next/image";
-import { FaSpotify } from "react-icons/fa";
+'use client'
 
-export default function Login() {
-    return (
-    <section className="relative h-screen">
-    <div className="absolute top-4 right-12">
-    </div>
-    <div className="h-screen grid grid-cols-1 lg:col-span-3 sm:p-8 md:p-0 lg:p-0 gap-12 xl:grid-cols-2 overflow-hidden">
-    <div className="hidden xl:block relative w-full h-full">
-      <Image
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/BgImageLogin.svg"
-        width={800}
-        height={600}
-        alt="Imagem de fundo do login"
-      />
-    </div>
-    <div className="flex items-center justify-center">
-      <div className="w-full max-w-2xl p-4 lg:p-12 shadow-lg">
-        <header>
-          <h1 className="text-4xl text-center mt-4">Login</h1>
-          <p className="text-center">
-            Preencha os campos abaixo para entrar na nossa plataforma...
-          </p>
-        </header>
-        <figure>
-          <button
-        className="cursor-pointer flex items-center justify-center gap-2 w-full mt-6"
-        onClick={() => signIn("spotify", {callbackUrl: "/"})}
-        >
-          <FaSpotify size={32} className="text-green-500" />
-          Entrar com Spotify
-        </button>
-        </figure>
+import { signIn } from "next-auth/react"
+import Image from "next/image"
+import { FaSpotify } from "react-icons/fa"
+
+export default function LoginPage() {
+  return (
+    <section className="relative min-h-screen">
+      <div className="grid grid-cols-1 xl:grid-cols-2 h-full">
+        <div className="hidden xl:block relative w-full h-screen">
+          <Image
+            src="/BgImageLogin.svg"
+            alt="Imagem de fundo do login"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+
+        <div className="flex items-center justify-center p-8">
+          <div className="w-full max-w-xl bg-white/5 p-8 rounded-xl shadow-lg backdrop-blur-md">
+            <header className="text-center mb-6">
+              <h1 className="text-4xl font-bold mb-2">Login</h1>
+              <p className="text-gray-300">
+                Faça login com sua conta do Spotify para acessar a plataforma.
+              </p>
+            </header>
+
+            <button
+              className="flex items-center justify-center gap-3 w-full py-3 px-6 rounded-lg bg-green-500 hover:bg-green-600 text-white font-semibold transition duration-200"
+              onClick={() => signIn("spotify", { callbackUrl: "/" })}
+            >
+              <FaSpotify size={24} />
+              Entrar com Spotify
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  </section>
-
-    )
+    </section>
+  )
 }
