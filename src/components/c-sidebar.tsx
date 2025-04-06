@@ -1,6 +1,5 @@
 "use client";
-import { PlaylistProps } from "@/interface";
-import { SidebarProps } from "@/interface/sidebar";
+import { PlaylistProps, SidebarProps } from "@/interface/sidebar";
 import styles from "@/styles/sidebar.module.css";
 import { useSession } from "next-auth/react";
 import Image from "next/image";

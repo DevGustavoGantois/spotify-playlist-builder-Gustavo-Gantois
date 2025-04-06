@@ -4,6 +4,9 @@ import { useState } from 'react'
 import styles from '@/styles/index.module.css'
 import { Sidebar } from '@/components/c-sidebar';
 import { PlaylistView } from '@/components/c-playlist-view';
+import { Search } from '@/components/c-search';
+import { Library } from '@/components/c-library';
+import { Artist } from '@/components/c-artist';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +27,12 @@ export default function Home() {
           />
         </div>
         <div>
-          {searchView === "playlist" && <PlaylistView />}
+          {searchView === "playlist" && <PlaylistView 
+          playlistUserId={playlistUserId}
+          />}
+          {searchView === "search" && <Search />}
+          {searchView === "library" && <Library />}
+          {searchView === "artist" && <Artist />}
         </div>
         <div>
 

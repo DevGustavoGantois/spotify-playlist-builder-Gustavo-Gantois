@@ -5,3 +5,13 @@ export interface SidebarProps {
     setView: Dispatch<SetStateAction<string>>;
     setPlaylistUserId: Dispatch<SetStateAction<string | null>>
 }
+
+export interface PlaylistViewProps {
+    playlistUserId: string | null;
+}
+
+export interface PlaylistProps {
+    id: string;
+    name: string;
+    [key: string]: any;
+}
