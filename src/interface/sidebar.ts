@@ -16,3 +16,11 @@ export interface PlaylistProps {
     name: string;
     [key: string]: any;
 }
+
+export interface PlaylistTrackItem {
+    track: {
+      id: string;
+      name: string;
+      artists: { name: string }[];
+    };
+  }
