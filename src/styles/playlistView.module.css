@@ -54,7 +54,7 @@
   }
   
   .playlistName {
-    font-size: 2rem;
+    font-size: 5rem;
     font-weight: 700;
     margin-top: 1rem;
   }
@@ -75,6 +75,12 @@
     font-weight: 500;
   }
   
+  @media (max-width: 1024px) {
+    .playlistName {
+        font-size: 3rem;
+    }
+  }
+
   /* Responsividade */
   @media (max-width: 768px) {
     .header {

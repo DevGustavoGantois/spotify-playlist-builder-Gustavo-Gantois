@@ -1,6 +1,6 @@
 .sidebar {
     width: 100%;
-    max-width: 64rem;
+    max-width: 60rem;
     height: 100vh;
     flex-shrink: 0;
     z-index: 100;
@@ -10,7 +10,7 @@
     flex-direction: column;
     gap: 2rem;
   
-    padding: 2rem 1.5rem;
+    padding: 2rem 0.2rem;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
