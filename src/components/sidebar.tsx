@@ -3,10 +3,16 @@ import { PlaylistProps } from "@/interface";
 import styles from "@/styles/sidebar.module.css";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { FaBook, FaHeart, FaHome, FaMusic, FaSearch } from "react-icons/fa";
 
-export function Sidebar() {
+interface SidebarProps {
+    view: string;
+    setView: Dispatch<SetStateAction<string>>;
+    setPlaylistUserId: Dispatch<SetStateAction<string | null>>
+}
+
+export function Sidebar({view, setView, setPlaylistUserId}: SidebarProps) {
 
     const { data: session } = useSession();
     const [x, setX] = useState("");
@@ -38,11 +44,11 @@ export function Sidebar() {
                     <FaHome className={styles.icon} />
                     Home
                 </button>
-                <button className={styles.button}>
+                <button onClick={() => setView("search")} className={styles.button}>
                     <FaSearch className={styles.icon} />
                     Pesquisar
                 </button>
-                <button className={styles.button}>
+                <button onClick={() => setView("library")} className={styles.button}>
                     <FaBook className={styles.icon} />
                     Sua biblioteca
                 </button>
@@ -61,7 +67,11 @@ export function Sidebar() {
             <div className={styles.containerPlaylists}>
                 {userPlaylists.map((playlist) => {
                     return (
-                        <p className={styles.chooseMusic} key={playlist.id}>{playlist.name.length > 25 ? playlist.name.slice(0, 25) + "..." : playlist.name}</p>
+                        <p onClick={() => {
+                            setView("playlist")
+                            setPlaylistUserId(playlist.id)
+                        }} 
+                        className={styles.chooseMusic} key={playlist.id}>{playlist.name.length > 25 ? playlist.name.slice(0, 25) + "..." : playlist.name}</p>
                     )
                 })}
             </div>
