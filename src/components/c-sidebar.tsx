@@ -22,7 +22,11 @@ export function Sidebar({view, setView, setPlaylistUserId}: SidebarProps) {
                 }
               })
               const data = await response.json()
-              setUserPlaylists(data.items)
+                if (data && Array.isArray(data.items)) {
+                setUserPlaylists(data.items)
+                } else {
+                setUserPlaylists([]) 
+                }
             }
           }
       
@@ -62,10 +66,11 @@ export function Sidebar({view, setView, setPlaylistUserId}: SidebarProps) {
                 {userPlaylists.map((playlist) => {
                     return (
                         <p onClick={() => {
-                            setView("playlist")
-                            setPlaylistUserId(playlist.id)
-                        }} 
-                        className={styles.chooseMusic} key={playlist.id}>{playlist.name.length > 25 ? playlist.name.slice(0, 25) + "..." : playlist.name}</p>
+                            setView("playlist");
+                            setPlaylistUserId(playlist.id);
+                        }} className={styles.chooseMusic} key={playlist.id}>
+                            {playlist.name.length > 25 ? playlist.name.slice(0, 25) + "..." : playlist.name}
+                        </p>
                     )
                 })}
             </div>

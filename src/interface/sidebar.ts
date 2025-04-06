@@ -3,8 +3,9 @@ import { Dispatch, SetStateAction } from "react";
 export interface SidebarProps {
     view: string;
     setView: Dispatch<SetStateAction<string>>;
-    setPlaylistUserId: Dispatch<SetStateAction<string | null>>
-}
+    setPlaylistUserId: Dispatch<SetStateAction<string | null>>;
+  }
+  
 
 export interface PlaylistViewProps {
     playlistUserId: string | null;

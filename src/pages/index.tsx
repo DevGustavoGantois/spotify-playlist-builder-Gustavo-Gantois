@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const [searchView, setSearchView] = useState("search")
   const [playlistUserId, setPlaylistUserId] = useState<string | null>(null);
-  const [ArtistsUserId, setArtistsUserId] = useState(null);
+  const [ArtistsUserId, setArtistsUserId] = useState<string | null>(null);
 
 
   return (
