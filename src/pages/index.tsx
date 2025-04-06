@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className={`${inter.className}`}>
       <div className={styles.div}>
-        <div>
+        <div className={styles.sidebarContainer}>
           <Sidebar
            view={searchView}
            setView={setSearchView}

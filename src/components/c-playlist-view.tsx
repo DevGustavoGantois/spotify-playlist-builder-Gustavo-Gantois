@@ -70,9 +70,20 @@ export function PlaylistView({ playlistUserId }: PlaylistViewProps) {
                             className={styles.imagePlaylist}
                         />
                     )}
-                    <p>Playlist</p>
+                    <div>
+                    <p className={styles.paragraph}>Playlist</p>
                     <p className={styles.playlistName}>{playlistUserData?.name}</p>
+                    </div>
                 </section>
+                <div className={styles.playlistColumn}>
+                    {playlistUserData?.tracks.items.map((track, i) => {
+                        return (
+                            <div key={track.track.id}>
+
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </section>
     );

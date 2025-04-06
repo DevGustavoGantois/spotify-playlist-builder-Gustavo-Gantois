@@ -13,3 +13,8 @@
     background: #1b1b;
     height: 24px;
 }
+
+.sidebarContainer {
+    display: flex;
+    width: 100%;
+}

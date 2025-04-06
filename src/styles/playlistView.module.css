@@ -1,11 +1,21 @@
 .containerPlaylistView {
     flex-grow: 1;
-    height: 100vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, #1DB954 0%, #191414 50%, #121212 100%);
+    flex: 1;
+    gap: 12px;
     color: white;
     padding: 2rem;
+  }
+
+  .playlistColumn {
+    color: white;
+    padding-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 28px;
   }
   
   .header {
@@ -54,7 +64,7 @@
   }
   
   .playlistName {
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-top: 1rem;
   }
@@ -68,11 +78,22 @@
     flex-direction: column;
   }
   
+  .paragraph {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
   .logoutText {
     margin-left: 0.8rem;
     margin-right: 0.4rem;
     font-size: 1.4rem;
     font-weight: 500;
+  }
+
+  .section {
+    display: flex;
+    gap: 8px;
+    align-items: end;
   }
   
   @media (max-width: 1024px) {
