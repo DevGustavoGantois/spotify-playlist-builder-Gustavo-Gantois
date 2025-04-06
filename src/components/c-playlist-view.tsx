@@ -1,4 +1,5 @@
 "use client";
+
 import { PlaylistTrackItem, PlaylistViewProps } from "@/interface/sidebar";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -30,6 +31,7 @@ export function PlaylistView({ playlistUserId }: PlaylistViewProps) {
 
           const data = await response.json();
           setPlaylistUserData(data);
+          console.log("Imagem da playlist:", data?.images?.[0]?.url);
         } catch (error) {
           console.error("Erro ao buscar playlist:", error);
         }
@@ -40,6 +42,7 @@ export function PlaylistView({ playlistUserId }: PlaylistViewProps) {
   }, [session, playlistUserId]);
 
   const playlistImage = playlistUserData?.images?.[0]?.url;
+  const userImage = session?.user?.image;
 
   return (
     <section className={styles.containerPlaylistView}>
@@ -50,23 +53,23 @@ export function PlaylistView({ playlistUserId }: PlaylistViewProps) {
 
       {/* Usuário e botão de logout */}
       <div className={styles.body}>
-        {session?.user?.image && (
+        {userImage ? (
           <Image
             className={styles.image}
-            src={session.user.image}
+            src={userImage}
             alt="Foto do usuário"
             width={50}
             height={50}
             priority
           />
+        ) : (
+          <div className={styles.imageFallback}>?</div>
         )}
         <p className={styles.logoutText}>Sair</p>
         <FaDoorClosed size={20} />
       </div>
 
-      {/* Conteúdo principal */}
       <div className={styles.div}>
-        {/* Capa da playlist e nome */}
         <section className={styles.section}>
           {playlistImage && (
             <Image
@@ -82,6 +85,7 @@ export function PlaylistView({ playlistUserId }: PlaylistViewProps) {
             <p className={styles.playlistName}>{playlistUserData?.name}</p>
           </div>
         </section>
+
         <div className={styles.playlistColumn}>
           {playlistUserData?.tracks?.items?.map(
             (item: PlaylistTrackItem, index: number) => {
