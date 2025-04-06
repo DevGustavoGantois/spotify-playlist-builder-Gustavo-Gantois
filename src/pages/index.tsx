@@ -3,6 +3,7 @@ import { PlaylistProps } from '@/interface';
 import { useSession } from 'next-auth/react'
 import { Inter } from 'next/font/google'
 import { useEffect, useState } from 'react'
+import styles from '@/styles/index.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,11 +31,20 @@ export default function Home() {
 
   return (
     <main className={`${inter.className}`}>
-      <div>
-        {userPlaylists.map((playlist) => (
-          <div key={playlist.id}>{playlist.name}</div>
-        ))}
+      <div className={styles.div}>
+        <aside>
+          Sidebar
+        </aside>
+        <div>
+          Main
+        </div>
+        <div>
+
+        </div>
       </div>
+      <figure className={styles.figure}>
+        aaaaaaa
+      </figure>
     </main>
   )
 }
