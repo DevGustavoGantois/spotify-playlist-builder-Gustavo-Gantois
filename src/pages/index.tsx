@@ -1,10 +1,9 @@
 "use client";
-import { PlaylistProps } from '@/interface';
-import { useSession } from 'next-auth/react'
 import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import styles from '@/styles/index.module.css'
-import { Sidebar } from '@/components/Sidebar';
+import { Sidebar } from '@/components/c-sidebar';
+import { PlaylistView } from '@/components/c-playlist-view';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +24,7 @@ export default function Home() {
           />
         </div>
         <div>
-          Main
+          {searchView === "playlist" && <PlaylistView />}
         </div>
         <div>
 

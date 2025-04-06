@@ -1,16 +1,11 @@
 "use client";
 import { PlaylistProps } from "@/interface";
+import { SidebarProps } from "@/interface/sidebar";
 import styles from "@/styles/sidebar.module.css";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBook, FaHeart, FaHome, FaMusic, FaSearch } from "react-icons/fa";
-
-interface SidebarProps {
-    view: string;
-    setView: Dispatch<SetStateAction<string>>;
-    setPlaylistUserId: Dispatch<SetStateAction<string | null>>
-}
 
 export function Sidebar({view, setView, setPlaylistUserId}: SidebarProps) {
 
