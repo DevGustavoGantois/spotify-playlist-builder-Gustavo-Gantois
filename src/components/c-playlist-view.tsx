@@ -32,7 +32,7 @@ export function PlaylistView({ playlistUserId }: PlaylistViewProps) {
                 </div>
             </header>
             <div className={styles.body}>
-           
+                
             </div>
         </section>
     );

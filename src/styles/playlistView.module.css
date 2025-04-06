@@ -1,34 +1,41 @@
 .containerPlaylistView {
-    flex: grow;
+    flex-grow: 1;
     height: 100vh;
-}
-
-.header {
-    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
     position: sticky;
-    top: 0px;
-    height: 20rem;
+    top: 0;
     z-index: 50;
+    height: 20rem;
+    background-color: #1B1B1B;
+    color: white;
     font-size: 4rem;
-    background: #1B1B1B;
+    font-weight: bold;
     padding: 8rem;
     display: flex;
     align-items: center;
-    font-weight: bold;
-}
-
-.body {
+  }
+  
+  .body {
     position: absolute;
-    z-index: 20;
     top: 5rem;
     right: 8rem;
+    z-index: 20;
     display: flex;
     align-items: center;
-    background: black;
+    background-color: black;
     color: white;
-    opacity: 70%;
-}
-
-.body:hover {
-    opacity: 80%;
-}
+    opacity: 0.7;
+    border-radius: 200px;
+    cursor: pointer;
+    padding: 1rem 2rem 1rem 1rem;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .body:hover {
+    opacity: 0.8;
+  }
+  
