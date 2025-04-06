@@ -93,7 +93,7 @@
   .section {
     display: flex;
     gap: 8px;
-    align-items: end;
+    align-items: flex-end;
   }
   
   @media (max-width: 1024px) {

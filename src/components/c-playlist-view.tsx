@@ -46,12 +46,9 @@ export function PlaylistView({ playlistUserId }: PlaylistViewProps) {
 
   return (
     <section className={styles.containerPlaylistView}>
-      {/* Cabeçalho com o nome da playlist */}
       <header className={styles.header}>
         {playlistUserData?.name || "Carregando..."}
       </header>
-
-      {/* Usuário e botão de logout */}
       <div className={styles.body}>
         {userImage ? (
           <Image
