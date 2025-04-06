@@ -75,6 +75,7 @@
 
   .chooseMusic:hover {
     color: white;
+    transform: translateX(1.015)
   }
   
   @media (max-width: 768px) {
