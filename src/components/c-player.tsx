@@ -15,7 +15,6 @@ export function Player({
   const { data: session } = useSession();
   const [songInfo, setSongInfo] = useState<Track | null>(null);
 
-
   useEffect(() => {
     async function fetchTrackInfo(trackId: string) {
       if (trackId && session?.accessToken) {
@@ -44,9 +43,8 @@ export function Player({
     }
   }, [playSongId, session]);
 
-
   async function getPlayingUserMusic() {
-    if (!session?.accessToken) return;
+    if (!session?.accessToken) return null;
 
     const response = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
       headers: {
@@ -55,7 +53,12 @@ export function Player({
     });
 
     if (response.status === 204) {
-      console.log("204: Nenhuma música tocando agora");
+      console.log("Nenhuma música tocando agora.");
+      return null;
+    }
+
+    if (!response.ok) {
+      console.error("Erro ao buscar música atual:", response.status);
       return null;
     }
 
@@ -63,29 +66,46 @@ export function Player({
     return data;
   }
 
-  // Controle de play/pause
   async function handlePlayPause() {
     if (!session?.accessToken) return;
 
-    const data = await getPlayingUserMusic();
-    if (!data) return;
+    try {
+      const deviceResponse = await fetch("https://api.spotify.com/v1/me/player/devices", {
+        headers: {
+          Authorization: `Bearer ${session.accessToken}`,
+        },
+      });
 
-    if (data.is_playing) {
-      await fetch("https://api.spotify.com/v1/me/player/pause", {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${session.accessToken}`,
-        },
-      });
-      setTrackUserPlayingMusic(null);
-    } else {
-      await fetch("https://api.spotify.com/v1/me/player/play", {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${session.accessToken}`,
-        },
-      });
-      setTrackUserPlayingMusic(data.item.id);
+      const deviceData = await deviceResponse.json();
+      const activeDevice = deviceData.devices?.find((device: any) => device.is_active);
+
+      if (!activeDevice) {
+        console.warn("Nenhum dispositivo ativo encontrado.");
+        alert("Abra o Spotify em algum dispositivo e tente novamente.");
+        return;
+      }
+
+      const data = await getPlayingUserMusic();
+
+      if (data?.is_playing) {
+        await fetch("https://api.spotify.com/v1/me/player/pause", {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${session.accessToken}`,
+          },
+        });
+        setTrackUserPlayingMusic(null);
+      } else {
+        await fetch("https://api.spotify.com/v1/me/player/play", {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${session.accessToken}`,
+          },
+        });
+        setTrackUserPlayingMusic(data?.item?.id ?? playSongId);
+      }
+    } catch (error) {
+      console.error("Erro ao alternar reprodução:", error);
     }
   }
 
