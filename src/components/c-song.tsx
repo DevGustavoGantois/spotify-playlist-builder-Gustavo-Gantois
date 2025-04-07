@@ -36,7 +36,7 @@ export function Song({
         <p>{sno + 1}</p>
         <img
           className={styles.albumImage}
-          src={track.album.images[0].url}
+          src={track.album.images?.[0]?.url || "/placeholder.jpg"}
           alt={`Capa do álbum ${track.album.name}`}
         />
         <div>
