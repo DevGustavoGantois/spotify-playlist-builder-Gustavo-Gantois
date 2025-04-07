@@ -1,0 +1,5 @@
+.playerSection {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}

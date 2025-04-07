@@ -1,7 +1,9 @@
+import styles from '@/styles/player.module.css';
+
 export function Player() {
     return (
-        <figure>
+        <section className={styles.playerSection}>
 
-        </figure>
+        </section>
     )
 }

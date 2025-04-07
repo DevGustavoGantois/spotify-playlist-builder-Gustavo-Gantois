@@ -7,6 +7,7 @@ import { PlaylistView } from '@/components/c-playlist-view';
 import { Search } from '@/components/c-search';
 import { Library } from '@/components/c-library';
 import { Artist } from '@/components/c-artist';
+import { Player } from '@/components/c-player';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -39,7 +40,7 @@ export default function Home() {
         </div>
       </div>
       <figure className={styles.figure}>
-        aaaaaaa
+        <Player />
       </figure>
     </main>
   )
