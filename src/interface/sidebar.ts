@@ -9,6 +9,7 @@ export interface SidebarProps {
 
 export interface PlaylistViewProps {
     playlistUserId: string | null;
+    setPlaySongId: Dispatch<SetStateAction<string | null>>;
 }
 
 export interface PlaylistProps {

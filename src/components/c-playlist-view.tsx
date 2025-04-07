@@ -6,7 +6,7 @@ import styles from '@/styles/playlistView.module.css';
 import Image from "next/image";
 import { FaDoorClosed } from "react-icons/fa";
 
-export function PlaylistView({ playlistUserId }: PlaylistViewProps) {
+export function PlaylistView({ playlistUserId, setPlaySongId }: PlaylistViewProps) {
     const [playlistUserData, setPlaylistUserData] = useState<any>(null);
     const { data: session } = useSession();
 

@@ -15,6 +15,7 @@ export default function Home() {
   const [searchView, setSearchView] = useState("search")
   const [playlistUserId, setPlaylistUserId] = useState<string | null>(null);
   const [ArtistsUserId, setArtistsUserId] = useState<string | null>(null);
+  const [playSongId, setPlaySongId] = useState<string | null>(null);
 
 
   return (
@@ -30,7 +31,7 @@ export default function Home() {
 
           <div className={styles.mainContent}>
             {searchView === "playlist" && (
-              <PlaylistView playlistUserId={playlistUserId} />
+              <PlaylistView playlistUserId={playlistUserId} setPlaySongId={setPlaySongId} />
             )}
             {searchView === "search" && <Search />}
             {searchView === "library" && <Library />}
