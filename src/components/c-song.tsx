@@ -1,6 +1,6 @@
 // src/components/Song.tsx
 import React from "react";
-import styles from '@/styles/song.module.css'
+import styles from '@/styles/song.module.css';
 import { Artist, SongProps, Track } from "@/interface/playlist-user";
 
 export function Song({
@@ -11,7 +11,7 @@ export function Song({
   setView,
   setGlobalArtistId,
 }: SongProps) {
-  async function playSong(track: Track) {
+  function playSong(track: Track) {
     setGlobalCurrentSongId(track.id);
     setGlobalIsTrackPlaying(true);
   }
@@ -34,7 +34,11 @@ export function Song({
     >
       <div className={styles.left}>
         <p>{sno + 1}</p>
-        <img className={styles.albumImage} src={track.album.images[0].url} alt="" />
+        <img
+          className={styles.albumImage}
+          src={track.album.images[0].url}
+          alt={`Capa do álbum ${track.album.name}`}
+        />
         <div>
           <p className={styles.trackName}>{track.name}</p>
           <p className={styles.artists}>
@@ -57,7 +61,11 @@ export function Song({
       </div>
 
       <div className={styles.right}>
-        <p className={styles.albumName}>{track.album.name.length > 1 ? track.album.name.slice(0, 1) + "..." : track.album.name}</p>
+        <p className={styles.albumName}>
+          {track.album.name.length > 15
+            ? track.album.name.slice(0, 15) + "..."
+            : track.album.name}
+        </p>
         <p>{millisToMinutesAndSeconds(track.duration_ms)}</p>
       </div>
     </div>
