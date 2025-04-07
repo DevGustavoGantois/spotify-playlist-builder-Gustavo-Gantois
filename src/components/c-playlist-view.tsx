@@ -5,10 +5,14 @@ import { useEffect, useState } from "react";
 import styles from '@/styles/playlistView.module.css';
 import Image from "next/image";
 import { FaDoorClosed } from "react-icons/fa";
+import { Song } from "./c-song";
 
 export function PlaylistView({ playlistUserId, setPlaySongId }: PlaylistViewProps) {
     const [playlistUserData, setPlaylistUserData] = useState<any>(null);
     const { data: session } = useSession();
+    const [globalIsTrackPlaying, setGlobalIsTrackPlaying] = useState(false);
+    const [view, setView] = useState("playlist");
+    const [globalArtistId, setGlobalArtistId] = useState<string | null>(null);
 
     useEffect(() => {
         async function fetchPlaylist() {
@@ -80,9 +84,14 @@ export function PlaylistView({ playlistUserId, setPlaySongId }: PlaylistViewProp
                     {playlistUserData?.tracks.items.map((item: any, index: number) => {
                         const track = item.track;
                         return (
-                            <div key={track.id} className={styles.trackItem}>
-                                <p>{index + 1}. {track.name} - {track.artists.map((artist: any) => artist.name).join(", ")}</p>
-                            </div>
+                            <Song
+                                sno={index}
+                                track={track}
+                                setGlobalCurrentSongId={setPlaySongId}
+                                setGlobalIsTrackPlaying={setGlobalIsTrackPlaying}
+                                setView={setView}
+                                setGlobalArtistId={setGlobalArtistId}
+                                />
                         );
                     })}
                 </div>

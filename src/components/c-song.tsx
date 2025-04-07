@@ -1,6 +1,6 @@
 // src/components/Song.tsx
 import React from "react";
-import styles from "./Song.module.css";
+import styles from '@/styles/song.module.css'
 import { Artist, SongProps, Track } from "@/interface/playlist-user";
 
 export function Song({
