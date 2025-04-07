@@ -16,6 +16,8 @@ export default function Home() {
   const [playlistUserId, setPlaylistUserId] = useState<string | null>(null);
   const [ArtistsUserId, setArtistsUserId] = useState<string | null>(null);
   const [playSongId, setPlaySongId] = useState<string | null>(null);
+  const [TrackUserPlayingMusic, setTrackUserPlayingMusic] = useState<string | null>(null);
+
 
 
   return (
@@ -26,6 +28,7 @@ export default function Home() {
               view={searchView}
               setView={setSearchView}
               setPlaylistUserId={setPlaylistUserId}
+              setTrackUserPlayingMusic={setTrackUserPlayingMusic}
             />
           </div>
 
@@ -40,7 +43,7 @@ export default function Home() {
         </div>
 
         <figure className={styles.figure}>
-          <Player playSongId={playSongId} />
+          <Player setPlaySongId={setPlaySongId} playSongId={playSongId} />
         </figure>
       </main>
   )

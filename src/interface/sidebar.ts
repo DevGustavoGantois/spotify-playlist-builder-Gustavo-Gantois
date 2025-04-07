@@ -4,6 +4,7 @@ export interface SidebarProps {
     view: string;
     setView: Dispatch<SetStateAction<string>>;
     setPlaylistUserId: Dispatch<SetStateAction<string | null>>;
+    setTrackUserPlayingMusic: Dispatch<SetStateAction<string | null>>;
   }
   
 
@@ -32,4 +33,5 @@ export interface PlayProps {
 
 export interface PlayerProps {
   playSongId: string | null;
+  setPlaySongId: Dispatch<SetStateAction<string | null>>;
 }

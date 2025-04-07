@@ -1,4 +1,4 @@
-import { PlayerProps, PlayProps } from '@/interface/sidebar';
+import { PlayerProps } from '@/interface/sidebar';
 import styles from '@/styles/player.module.css';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
