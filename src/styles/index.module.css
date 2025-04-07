@@ -4,9 +4,11 @@
     width: 100%;
     overflow: hidden;
     background: black;
-    position: relative; 
+    position: relative;
+    flex-direction: row;
   }
   
+  /* SIDEBAR */
   .sidebarContainer {
     display: flex;
     width: 20%;
@@ -15,6 +17,7 @@
     flex-shrink: 0;
   }
   
+  /* CONTEÚDO PRINCIPAL */
   .mainContent {
     width: 80%;
     overflow-y: auto;
@@ -22,13 +25,42 @@
     flex-grow: 1;
     min-width: 0;
   }
-  
   .figure {
     position: sticky;
-    bottom: 0; 
+    bottom: 0;
     width: 100%;
     background: #1b1b1b;
     z-index: 20;
     margin: 0;
+  }
+  
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    .div {
+      flex-direction: column;
+    }
+  
+    .sidebarContainer {
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid #333;
+    }
+  
+    .mainContent {
+      width: 100%;
+      height: calc(100vh - 80px - 24px); /* Ajuste para altura da sidebar + player */
+    }
+  
+    .figure {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+    }
   }
   
