@@ -57,7 +57,7 @@ export function Song({
       </div>
 
       <div className={styles.right}>
-        <p className={styles.albumName}>{track.album.name}</p>
+        <p className={styles.albumName}>{track.album.name.length > 1 ? track.album.name.slice(0, 1) + "..." : track.album.name}</p>
         <p>{millisToMinutesAndSeconds(track.duration_ms)}</p>
       </div>
     </div>
