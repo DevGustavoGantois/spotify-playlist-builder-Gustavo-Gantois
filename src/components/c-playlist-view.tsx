@@ -84,7 +84,8 @@ export function PlaylistView({ playlistUserId, setPlaySongId }: PlaylistViewProp
                     {playlistUserData?.tracks.items.map((item: any, index: number) => {
                         const track = item.track;
                         return (
-                            <Song
+                            <div key={index}>
+                                <Song
                                 sno={index}
                                 track={track}
                                 setGlobalCurrentSongId={setPlaySongId}
@@ -92,6 +93,7 @@ export function PlaylistView({ playlistUserId, setPlaySongId }: PlaylistViewProp
                                 setView={setView}
                                 setGlobalArtistId={setGlobalArtistId}
                                 />
+                            </div>
                         );
                     })}
                 </div>
