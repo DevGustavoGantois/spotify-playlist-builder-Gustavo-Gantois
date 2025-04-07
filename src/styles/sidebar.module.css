@@ -3,7 +3,7 @@
     max-width: 60rem;
     height: 100vh;
     flex-shrink: 0;
-    z-index: 100;
+    z-index: 10;
     overflow-y: scroll;
     display: inline-flex;
     display: flex;
