@@ -18,30 +18,29 @@ export default function Home() {
 
 
   return (
-    <main className={`${inter.className}`}>
-      <div className={styles.div}>
-        <div className={styles.sidebarContainer}>
-          <Sidebar
-           view={searchView}
-           setView={setSearchView}
-           setPlaylistUserId={setPlaylistUserId}
-          />
-        </div>
-        <div>
-          {searchView === "playlist" && <PlaylistView 
-          playlistUserId={playlistUserId}
-          />}
-          {searchView === "search" && <Search />}
-          {searchView === "library" && <Library />}
-          {searchView === "artist" && <Artist />}
-        </div>
-        <div>
+          <main className={`${inter.className}`}>
+        <div className={styles.div}>
+          <div className={styles.sidebarContainer}>
+            <Sidebar
+              view={searchView}
+              setView={setSearchView}
+              setPlaylistUserId={setPlaylistUserId}
+            />
+          </div>
 
+          <div className={styles.mainContent}>
+            {searchView === "playlist" && (
+              <PlaylistView playlistUserId={playlistUserId} />
+            )}
+            {searchView === "search" && <Search />}
+            {searchView === "library" && <Library />}
+            {searchView === "artist" && <Artist />}
+          </div>
         </div>
-      </div>
-      <figure className={styles.figure}>
-        <Player />
-      </figure>
-    </main>
+
+        <figure className={styles.figure}>
+          <Player />
+        </figure>
+      </main>
   )
 }
