@@ -13,7 +13,7 @@
 
 .songContainer:hover {
   background: linear-gradient(90deg, #191414 0%, #1db954 100%);
-  transform: scale(1.01);
+  transform: scale(1.015);
 }
 
 .left {
@@ -27,25 +27,31 @@
   width: 2.5rem;
   border-radius: 0.25rem;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .trackName {
   color: #fff;
   font-weight: 600;
-  max-width: 16rem;
+  font-size: 0.9rem;
+  max-width: 12rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.trackName:hover {
+  color: #1db954;
 }
 
 .artists {
   max-width: 10rem;
+  font-size: 0.8rem;
+  color: #ccc;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 0.8rem;
-  color: #ccc;
 }
 
 .artistName {
@@ -63,31 +69,43 @@
 .right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1rem;
   margin-left: auto;
   max-width: 16rem;
   color: #d1d1d1;
-  gap: 1rem;
 }
 
 .albumName {
   display: none;
   font-size: 0.85rem;
   color: #aaa;
-  display: none;
-  font-size: 0.85rem;
   max-width: 6rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-@media (min-width: 768px) {
+/* 🔓 Mobile first design */
+@media (min-width: 360px) {
+  .trackName {
+    font-size: 0.9rem;
+    max-width: 10rem;
+  }
+
   .albumName {
     display: inline;
+    max-width: 7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .trackName {
+    font-size: 1rem;
+    max-width: 14rem;
+  }
+
+  .albumName {
     max-width: 10rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
