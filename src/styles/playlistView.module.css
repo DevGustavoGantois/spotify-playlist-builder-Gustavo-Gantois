@@ -1,12 +1,14 @@
+/* CONTAINER PRINCIPAL */
 .containerPlaylistView {
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
     background-color: #0f0f0f;
-    overflow: hidden; 
+    overflow: hidden;
   }
   
+  /* ÁREA PRINCIPAL DE CONTEÚDO */
   .div {
     flex: 1;
     overflow-y: auto;
@@ -14,7 +16,6 @@
     display: flex;
     flex-direction: column;
   }
-  
   
   /* HEADER */
   .header {
@@ -32,6 +33,7 @@
     justify-content: space-between;
   }
   
+  /* PERFIL / BOTÃO */
   .body {
     display: flex;
     align-items: center;
@@ -61,16 +63,7 @@
     justify-items: start;
   }
   
-  /* MAIN WRAPPER */
-  .div {
-    flex: 1;
-    overflow-y: auto;
-    background-color: #171717;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* SECTION COM IMAGEM */
+  /* SEÇÃO COM IMAGEM E NOME DA PLAYLIST */
   .section {
     display: flex;
     align-items: flex-end;
@@ -79,6 +72,7 @@
     height: 20rem;
     color: white;
     background-image: linear-gradient(to bottom, var(--gradient-color, #1db954), #171717);
+    flex-wrap: wrap;
   }
   
   .imagePlaylist {
@@ -101,6 +95,40 @@
     font-size: 2.25rem;
     margin-top: 0.25rem;
     font-weight: 800;
+  }
+  
+  /* RESPONSIVIDADE */
+  @media (max-width: 768px) {
+    .containerPlaylistView {
+      width: 100vw;
+    }
+  
+    .section {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: auto;
+      padding: 2rem 1rem;
+    }
+  
+    .imagePlaylist {
+      width: 8rem;
+      height: 8rem;
+    }
+  
+    .playlistName {
+      font-size: 1.5rem;
+    }
+  
+    .paragraph {
+      font-size: 0.75rem;
+    }
+  
+    .header {
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
   }
   
   @media (min-width: 768px) {
