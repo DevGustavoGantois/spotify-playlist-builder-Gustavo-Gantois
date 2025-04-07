@@ -12,12 +12,6 @@ export interface PlaylistViewProps {
     setPlaySongId: Dispatch<SetStateAction<string | null>>;
 }
 
-export interface SongProps {
-  track: unknown;
-  sno: number;
-  setPlaySongId: Dispatch<SetStateAction<string | null>>
-}
-
 export interface PlaylistProps {
     id: string;
     name: string;
@@ -31,3 +25,11 @@ export interface PlaylistTrackItem {
       artists: { name: string }[];
     };
   }
+
+export interface PlayProps {
+  playSongId: string | unknown;
+}
+
+export interface PlayerProps {
+  playSongId: string | null;
+}

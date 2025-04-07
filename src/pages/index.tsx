@@ -40,7 +40,7 @@ export default function Home() {
         </div>
 
         <figure className={styles.figure}>
-          <Player />
+          <Player playSongId={playSongId} />
         </figure>
       </main>
   )

@@ -1,12 +1,11 @@
 .playerSection {
-    height: 5rem;
     background: linear-gradient(to right, #000000, #2f2f2f, #000000);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     font-size: 1rem;
-    padding: 0 2rem;
+    padding: 0rem 1rem;
     align-items: center;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.6); 
   }
@@ -28,6 +27,22 @@
     height: 2rem;
     width: 2rem;
   }
+
+  .img {
+    overflow: hidden;
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .name {
+    color: white;
+    font-size: 14px;
+  }
+
+  .artists {
+    color: #D9D9D9;
+    font-size: 12px;
+  }
   
   /* Responsivo */
   @media (max-width: 768px) {
@@ -35,6 +50,10 @@
       grid-template-columns: 1fr;
       padding: 1rem;
       text-align: center;
+    }
+
+    .img {
+        display: inline;
     }
   
     .playerDiv {
