@@ -1,7 +1,15 @@
-export function searchResults() {
+import { SearchResultsProps } from "@/interface/playlist-user";
+
+export function SearchResults({
+    searchMusicData,
+    setView,
+    setGlobalCurrentSongId,
+    setGlobalIsTrackPlaying,
+    setGlobalArtistId,
+  }: SearchResultsProps) {
     return (
-        <div>
-            
-        </div>
+        <section>
+
+        </section>
     )
-}
+  }

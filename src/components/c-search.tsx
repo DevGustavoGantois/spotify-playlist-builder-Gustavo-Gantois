@@ -3,7 +3,9 @@ import styles from '@/styles/search.module.css';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { FaChevronCircleDown, FaSearch } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
+import { FeatPlaylists } from './c-feat-playlists';
+import { SearchResults } from './c-search-results';
 
 export function Search() {
   const { data: session } = useSession();
@@ -11,6 +13,12 @@ export function Search() {
   const [searchMusicData, setSearchMusicData] = useState<any>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputSearchValueData, setInputSearchValueData] = useState<string>("");
+
+  // estados globais simulados
+  const [view, setView] = useState("search");
+  const [globalIsTrackPlaying, setGlobalIsTrackPlaying] = useState(false);
+  const [globalCurrentSongId, setGlobalCurrentSongId] = useState<string | null>(null);
+  const [globalArtistId, setGlobalArtistId] = useState<string | null>(null);
 
   async function updateSearchResultsData(query: string) {
     if (!query.trim()) return;
@@ -68,16 +76,24 @@ export function Search() {
             height={48}
           />
         )}
-        <p className={styles.paragraph}>Sair</p>
-        <FaChevronCircleDown className={styles.icon} />
       </div>
+
       <div>
         {searchMusicData ? (
-          <pre style={{ color: "#fff" }}>
-            {JSON.stringify(searchMusicData, null, 2)}
-          </pre>
+          <SearchResults
+            searchMusicData={searchMusicData}
+            setView={setView}
+            setGlobalCurrentSongId={setGlobalCurrentSongId}
+            setGlobalIsTrackPlaying={setGlobalIsTrackPlaying}
+            setGlobalArtistId={setGlobalArtistId}
+          />
         ) : (
-          <p className={styles.paragraph}>Nenhuma música encontrada.</p>
+          <FeatPlaylists
+          setView={setView}
+          setGlobalIsTrackPlaying={setGlobalIsTrackPlaying}
+          setGlobalCurrentSongId={setGlobalCurrentSongId}
+          setGlobalArtistId={setGlobalArtistId}
+          />
         )}
       </div>
     </div>

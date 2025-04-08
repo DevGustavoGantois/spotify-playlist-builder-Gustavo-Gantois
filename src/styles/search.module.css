@@ -2,31 +2,34 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #121212;
     padding: 1rem;
+    background-color: #0d0d0d;
+    color: white;
+    gap: 2rem;
   }
   
   .searchHeader {
-    color: white;
     position: sticky;
     top: 0;
     z-index: 10;
+    background-color: #121212;
+    padding: 2rem 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 2rem 1.5rem;
-    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
-    background-color: #121212;
+    justify-content: center;
+    gap: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
   }
   
   .searchInput {
+    flex: 1;
     border-radius: 999px;
     background: #1b1b1b;
     width: 100%;
     max-width: 600px;
-    padding: 0.75rem 2rem;
-    color: #1b1b1b;
+    padding: 0.75rem 2.5rem 0.75rem 1.25rem;
+    color: #fff;
     font-size: 1rem;
     border: none;
     outline: none;
@@ -35,17 +38,23 @@
   }
   
   .searchInput:focus {
-    box-shadow: 0 0 0 2px #1db954; 
+    box-shadow: 0 0 0 2px #1db954;
+  }
+  
+  .iconSearch {
+    position: absolute;
+    right: 2.5rem;
+    color: #aaa;
+    pointer-events: none;
   }
   
   .searchDiv {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
     justify-content: flex-end;
-    z-index: 20;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 0 1.5rem;
   }
   
   .img {
@@ -53,45 +62,38 @@
     width: 4rem;
     height: 4rem;
     object-fit: cover;
+    border: 2px solid #1db954;
   }
   
   .icon {
     width: 1.5rem;
     height: 1.5rem;
-    filter: brightness(0) invert(1);
+    color: #1db954;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
   }
-
-  .iconSearch {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
+  
+  .icon:hover {
+    transform: scale(1.1);
   }
   
   .paragraph {
     font-size: 0.875rem;
     color: #ccc;
-    max-width: 100%;
-    line-height: 1.4;
+    margin: 0;
   }
   
   @media (max-width: 768px) {
     .searchHeader {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
+      padding-top: 5rem;
       gap: 1rem;
-      padding-top: 6rem;
-      font-size: 1.75rem;
-    }
-  
-    .searchInput {
-      padding: 0.75rem 1.25rem;
-      max-width: 100%;
     }
   
     .searchDiv {
       justify-content: center;
-      gap: 0.5rem;
+      margin-top: 1rem;
     }
   
     .img {

@@ -1,7 +1,7 @@
 // src/components/Song.tsx
 import React from "react";
 import styles from '@/styles/song.module.css';
-import { Artist, SongProps, Track } from "@/interface/playlist-user";
+import { Artist, SongProps } from "@/interface/playlist-user";
 
 export function Song({
   sno,
@@ -11,7 +11,7 @@ export function Song({
   setView,
   setGlobalArtistId,
 }: SongProps) {
-  function playSong(track: Track) {
+  function playSong(track: SongProps) {
     setGlobalCurrentSongId(track.id);
     setGlobalIsTrackPlaying(true);
   }
