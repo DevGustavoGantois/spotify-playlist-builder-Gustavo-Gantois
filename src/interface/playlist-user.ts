@@ -31,7 +31,7 @@ export interface Playlist {
 
   export interface SearchResultsProps {
     searchMusicData: any;
-    playlists?: string;
+    playlists: Playlist[];
     setView: React.Dispatch<React.SetStateAction<string>>;
     setGlobalCurrentSongId: React.Dispatch<React.SetStateAction<string | null>>;
     setGlobalIsTrackPlaying: React.Dispatch<React.SetStateAction<boolean>>;
