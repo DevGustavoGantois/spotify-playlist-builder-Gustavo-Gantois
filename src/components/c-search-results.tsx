@@ -108,7 +108,7 @@ export function SearchResults({
         <figure className={styles.figure}>
           <h2 className={styles.searchH2}>Melhores Músicas</h2>
           <div className={styles.divSongs}>
-            {musicSongs.map((song, index) => {
+            {musicSongs.slice(0,8).map((song, index) => {
               return (
                 <div key={song.id} className={styles.divMapSongs}>
                   <Image
@@ -137,6 +137,9 @@ export function SearchResults({
           </div>
         </figure>
       </div>
+      <section className={styles.searchArtistSection}>
+
+      </section>
     </section>
   );
 }

@@ -1,4 +1,18 @@
-.searchArticle {
+.searchResultContainer {
+    padding: 1rem;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  
+  .containerDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  
+  .searchArticle {
     position: relative;
     background: linear-gradient(135deg, #1f1f1f, #111111);
     padding: 1.5rem;
@@ -13,6 +27,7 @@
     width: 100%;
     max-width: 220px;
     flex-shrink: 0;
+    box-sizing: border-box;
   }
   
   .searchArticle:hover {
@@ -71,6 +86,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .divMapSongs {
@@ -83,6 +100,9 @@
     transition: background 0.3s ease;
     gap: 1rem;
     flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
   
   .divMapSongs:hover {
@@ -94,11 +114,13 @@
     width: 8rem;
     border-radius: 10px;
     object-fit: cover;
+    flex-shrink: 0;
   }
   
   .divMapSongs > div {
-    flex: 1;
-    min-width: 150px;
+    flex: 1 1 auto;
+    min-width: 120px;
+    overflow: hidden;
   }
   
   .figureMapSongs {
@@ -106,21 +128,11 @@
     align-items: center;
     justify-content: flex-end;
     min-width: 60px;
+    flex-shrink: 0;
   }
-  
-  .searchResultContainer {
-    padding: 1rem;
-  }
-  
-  .containerDiv {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: flex-start;
-  }
-  
-  .searchMain {
-    margin-bottom: 2rem;
+
+  .searchArtistSection {
+    
   }
   
   /* Responsivo */
@@ -128,6 +140,7 @@
     .divMapSongs {
       flex-direction: column;
       align-items: flex-start;
+      justify-content: center;
       gap: 0.75rem;
       padding: 1rem;
     }
@@ -143,6 +156,12 @@
   
     .searchArticle {
       max-width: 100%;
+    }
+  
+    .figureMapSongs {
+      justify-content: flex-start;
+      width: 100%;
+      
     }
   }
   

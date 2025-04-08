@@ -1,4 +1,4 @@
-import { FeatPlaylistsProps, SongProps } from "@/interface/playlist-user";
+import { FeatPlaylistsProps } from "@/interface/playlist-user";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import styles from "@/styles/feat-playlist.module.css"; 
@@ -10,15 +10,15 @@ export function FeatPlaylists({ setView, setGlobalIsTrackPlaying }: FeatPlaylist
   const [playlistMusic, setPlaylistMusic] = useState<PlaylistProps[]>([]);
 
   function selectMusicPlaylist(playlist: PlaylistProps) {
-    setView("playlist");
-    setView(playlist.id)
+    setView("playlist")
+    setView(playlist.id); 
     setGlobalIsTrackPlaying(true);
   }
 
   useEffect(() => {
     async function functionality() {
       try {
-        if (session && session.accessToken) {
+        if (session?.accessToken) {
           const response = await fetch(
             "https://api.spotify.com/v1/browse/featured-playlists?" +
               new URLSearchParams({ country: "US" }),
@@ -31,7 +31,7 @@ export function FeatPlaylists({ setView, setGlobalIsTrackPlaying }: FeatPlaylist
           const data = await response.json();
           console.log("Resposta da API Spotify:", data);
   
-          if (data.playlists && data.playlists.items) {
+          if (data.playlists?.items) {
             setPlaylistMusic(data.playlists.items);
           } else {
             console.error("Estrutura de dados inesperada:", data);
@@ -60,7 +60,7 @@ export function FeatPlaylists({ setView, setGlobalIsTrackPlaying }: FeatPlaylist
             </div>
             <img
               className={styles.image}
-              src={playlist.images[0].url}
+              src={playlist.images[0]?.url}
               alt={playlist.name}
             />
             <p className={styles.playlistTitle}>{playlist.name}</p>
