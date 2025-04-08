@@ -86,6 +86,11 @@ export function PlaylistView({ playlistUserId, setPlaySongId }: PlaylistViewProp
                         return (
                             <div key={index}>
                                 <Song
+                                name={track.name}
+                                owner={track.owner}
+                                uri={track.uri}
+                                id={track.id}
+                                key={track.key}
                                 sno={index}
                                 track={track}
                                 setGlobalCurrentSongId={setPlaySongId}

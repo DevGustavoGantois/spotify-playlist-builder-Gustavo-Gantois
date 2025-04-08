@@ -3,6 +3,11 @@ export interface Artist {
     name: string;
   }
   
+export interface Playlist {
+  id: string;
+  images: {url: string}[];
+  name: string;
+}
   
 
   export interface SongProps {
@@ -26,6 +31,7 @@ export interface Artist {
 
   export interface SearchResultsProps {
     searchMusicData: any;
+    playlists?: string;
     setView: React.Dispatch<React.SetStateAction<string>>;
     setGlobalCurrentSongId: React.Dispatch<React.SetStateAction<string | null>>;
     setGlobalIsTrackPlaying: React.Dispatch<React.SetStateAction<boolean>>;

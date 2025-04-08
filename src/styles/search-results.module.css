@@ -1,0 +1,84 @@
+.searchResultContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 4rem 2rem;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #121212;
+  }
+  
+  .searchDiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+  }
+  
+  .searchMain {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .searchH2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .containerDiv {
+    height: auto;
+    padding-right: 2rem;
+  }
+  
+  .searchArticle {
+    cursor: pointer;
+    position: relative;
+    background: #1B1B1B;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 16px;
+    transition: background 0.3s ease;
+  }
+  
+  .searchArticle:hover {
+    background: rgba(27, 27, 27, 0.7);
+  }
+  
+  .playIconContainer {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #1db954;
+  }
+  
+  .searchArticle:hover .playIconContainer {
+    opacity: 1;
+  }
+  
+  .icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #000;
+  }
+  
+  .img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
