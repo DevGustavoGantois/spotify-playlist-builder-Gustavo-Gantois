@@ -1,4 +1,3 @@
-// src/components/SearchResults.tsx
 import {
   Artist,
   Playlist,
@@ -13,6 +12,7 @@ export function SearchResults({
   searchMusicData,
   musicSongs,
   playlists,
+  artists,
   setView,
   setGlobalCurrentSongId,
   setGlobalIsTrackPlaying,
@@ -43,12 +43,12 @@ export function SearchResults({
 
   function handleSelectPlaylist(playlist: Playlist) {
     setView("playlist");
-    setGlobalCurrentSongId(playlist.id);
+    setGlobalCurrentSongId(playlist && playlist.id);
   }
 
   function handleSelectArtist(artist: Artist) {
     setView("artist");
-    setGlobalArtistId(artist.id);
+    setGlobalArtistId(artist && artist.id);
   }
 
   function millisToMinutesAndSeconds(millis: number): string {
@@ -59,6 +59,7 @@ export function SearchResults({
 
   const firstTrack = playlists[0]?.tracks?.items?.[0]?.track;
   const imageSong = playlists[0]?.images[0]?.url;
+  const imageArtist = playlists[0]?.images[0]?.url;
 
   return (
     <section className={styles.searchResultContainer}>
@@ -80,14 +81,17 @@ export function SearchResults({
                     <FaPlay className={styles.icon} />
                   </div>
                 )}
-                {imageSong && (
+                {imageSong ? (
                   <Image
-                    width={200}
-                    height={200}
-                    src={playlists[0].images[0].url}
+                    fill
+                    src={imageSong}
                     alt={playlists[0].name}
                     className={styles.img}
                   />
+                ) : (
+                  <p style={{ fontSize: 16, color: "#FFFF" }}>
+                    Imagem não encontrada
+                  </p>
                 )}
                 <p style={{ color: "#fff", fontWeight: 600 }}>
                   {playlists[0]?.name}
@@ -105,40 +109,87 @@ export function SearchResults({
             )}
           </div>
         </main>
+
         <figure className={styles.figure}>
           <h2 className={styles.searchH2}>Melhores Músicas</h2>
           <div className={styles.divSongs}>
-            {musicSongs.slice(0,8).map((song, index) => {
-              return (
-                <div key={song.id} className={styles.divMapSongs}>
-                  <Image
-                    width={100}
-                    height={100}
-                    alt={song?.name}
-                    src={song?.album?.images[0]?.url}
-                    className={styles.divImageMapSongs}
-                  />
-                  <div>
-                    <p style={{ color: "#fff", fontWeight: 600 }}>
-                      {song?.name}
-                    </p>
-                    <p style={{ fontSize: 14, color: "GrayText" }}>
-                      {song?.artists[0]?.name}
-                    </p>
-                  </div>
-                  <figure className={styles.figureMapSongs}>
-                    <p style={{ fontSize: 14, color: "GrayText" }}>
-                      {millisToMinutesAndSeconds(song?.duration_ms)}
-                    </p>
-                  </figure>
+            {musicSongs.slice(0, 8).map((song) => (
+              <div key={song.id} className={styles.divMapSongs}>
+                <Image
+                  width={100}
+                  height={100}
+                  alt={song?.name}
+                  src={song?.album?.images[0]?.url}
+                  className={styles.divImageMapSongs}
+                />
+                <div>
+                  <p style={{ color: "#fff", fontWeight: 600 }}>{song?.name}</p>
+                  <p style={{ fontSize: 14, color: "GrayText" }}>
+                    {song?.artists[0]?.name}
+                  </p>
                 </div>
-              );
-            })}
+                <figure className={styles.figureMapSongs}>
+                  <p style={{ fontSize: 14, color: "GrayText" }}>
+                    {millisToMinutesAndSeconds(song?.duration_ms)}
+                  </p>
+                </figure>
+              </div>
+            ))}
           </div>
         </figure>
       </div>
       <section className={styles.searchArtistSection}>
+        <h2 style={{ fontSize: 24, fontWeight: 700 }}>Artistas</h2>
+        <div className={styles.searchArtistsDiv}>
+          {artists.slice(0, 4).map((artist) => (
+            <div
+              key={artist.id}
+              onClick={() => handleSelectArtist(artist)}
+              className={styles.divInsidePArtist}
+            >
+              <div className={styles.playIconContainer}>
+                <FaPlay className={styles.icon} />
+              </div>
+              <Image
+                className={styles.image}
+                src={artist.images[0]?.url}
+                alt={artist.name}
+                width={150}
+                height={150}
+              />
+              <p className={styles.ArtistTitle}>{artist.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className={styles.featArtistSection}>
+        <h2 className={styles.h2}>Playlists</h2>
+        <div className={styles.divOutsideArtist}>
+          {playlists
+            .filter((playlist) => playlist?.images?.[0]?.url)
+            .map((playlist) => (
+              <div
+                key={playlist.id}
+                onClick={() => handleSelectPlaylist(playlist)}
+                className={styles.divInsideArtist}
+              >
+                <div className={styles.playIconContainer}>
+                  <FaPlay className={styles.icon} />
+                </div>
 
+                <Image
+                  width={200}
+                  height={200}
+                  className={styles.image}
+                  src={playlist?.images[0]?.url}
+                  alt={playlist?.name}
+                />
+
+                <p className={styles.playlistTitle}>{playlist?.name}</p>
+                <p className={styles.playlistOwner}>By {playlist?.name}</p>
+              </div>
+            ))}
+        </div>
       </section>
     </section>
   );

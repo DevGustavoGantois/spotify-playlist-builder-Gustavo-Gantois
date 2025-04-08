@@ -1,6 +1,9 @@
 export interface Artist {
     id: string;
     name: string;
+    images: {
+      url: string;
+    }[] 
   }
 
   export interface Track {
@@ -55,6 +58,7 @@ export interface Artist {
 
   export interface SearchResultsProps {
     searchMusicData: any;
+    artists: Artist[];
     musicSongs: Track[];
     playlists: Playlist[];
     setView: React.Dispatch<React.SetStateAction<string>>;

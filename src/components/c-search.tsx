@@ -88,6 +88,7 @@ export function Search() {
       <div>
         {searchMusicData ? (
           <SearchResults
+          artists={searchMusicData?.artists?.items || []}
           musicSongs={searchMusicData?.tracks?.items || []}
           playlists={searchMusicData?.playlists?.items || []}
           searchMusicData={searchMusicData}

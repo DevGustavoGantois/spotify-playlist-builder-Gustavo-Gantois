@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "@/styles/feat-playlist.module.css"; 
 import { FaPlay } from "react-icons/fa";
 import { PlaylistProps } from "@/interface/sidebar";
+import Image from "next/image";
 
 export function FeatPlaylists({ setView, setGlobalIsTrackPlaying }: FeatPlaylistsProps) {
   const { data: session } = useSession();
@@ -58,12 +59,14 @@ export function FeatPlaylists({ setView, setGlobalIsTrackPlaying }: FeatPlaylist
             <div className={styles.playIconContainer}>
               <FaPlay className={styles.icon} />
             </div>
-            <img
+            <Image
+              width={200}
+              height={200}
               className={styles.image}
               src={playlist.images[0]?.url}
-              alt={playlist.name}
+              alt={playlist?.name}
             />
-            <p className={styles.playlistTitle}>{playlist.name}</p>
+            <p className={styles.playlistTitle}>{playlist?.name}</p>
             <p className={styles.playlistOwner}>
               By {playlist.owner.display_name}
             </p>
