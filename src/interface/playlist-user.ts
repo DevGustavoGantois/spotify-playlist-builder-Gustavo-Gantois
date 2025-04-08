@@ -5,6 +5,7 @@ export interface Artist {
 
   export interface Track {
       id: string;
+      duration_ms: number;
       name: string;
       album: {
         images: {url: string}[];
@@ -18,6 +19,9 @@ export interface Artist {
   export interface Playlist {
     id: string;
     name: string;
+    album: {
+      name: string;
+    }
     images: { url: string }[];
     tracks: {
       items: {
@@ -51,6 +55,7 @@ export interface Artist {
 
   export interface SearchResultsProps {
     searchMusicData: any;
+    musicSongs: Track[];
     playlists: Playlist[];
     setView: React.Dispatch<React.SetStateAction<string>>;
     setGlobalCurrentSongId: React.Dispatch<React.SetStateAction<string | null>>;

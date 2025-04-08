@@ -88,13 +88,14 @@ export function Search() {
       <div>
         {searchMusicData ? (
           <SearchResults
-            playlists={searchMusicData?.playlists?.items || []}
-            searchMusicData={searchMusicData}
-            setView={setView}
-            setGlobalCurrentSongId={setGlobalCurrentSongId}
-            setGlobalIsTrackPlaying={setGlobalIsTrackPlaying}
-            setGlobalArtistId={setGlobalArtistId}
-          />
+          musicSongs={searchMusicData?.tracks?.items || []}
+          playlists={searchMusicData?.playlists?.items || []}
+          searchMusicData={searchMusicData}
+          setView={setView}
+          setGlobalCurrentSongId={setGlobalCurrentSongId}
+          setGlobalIsTrackPlaying={setGlobalIsTrackPlaying}
+          setGlobalArtistId={setGlobalArtistId}
+        />
         ) : (
           <FeatPlaylists
             setView={setView}
