@@ -1,6 +1,10 @@
 // src/components/SearchResults.tsx
-import { Artist, Playlist, SearchResultsProps } from "@/interface/playlist-user";
-import styles from '@/styles/search-results.module.css';
+import {
+  Artist,
+  Playlist,
+  SearchResultsProps,
+} from "@/interface/playlist-user";
+import styles from "@/styles/search-results.module.css";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
@@ -13,7 +17,6 @@ export function SearchResults({
   setGlobalIsTrackPlaying,
   setGlobalArtistId,
 }: SearchResultsProps) {
-
   const { data: session } = useSession();
 
   async function handlePlayTrack(track: any) {
@@ -26,11 +29,11 @@ export function SearchResults({
       await fetch("https://api.spotify.com/v1/me/player/play", {
         method: "PUT",
         headers: {
-          Authorization: `Bearer ${session.accessToken}`
+          Authorization: `Bearer ${session.accessToken}`,
         },
         body: JSON.stringify({
-          uris: [track.uri]
-        })
+          uris: [track.uri],
+        }),
       });
     } catch (err) {
       console.error("Erro ao reproduzir faixa:", err);
@@ -47,6 +50,8 @@ export function SearchResults({
     setGlobalArtistId(artist.id);
   }
 
+  const firstTrack = playlists[0]?.tracks?.items?.[0]?.track;
+
   return (
     <section className={styles.searchResultContainer}>
       <div className={styles.searchDiv}>
@@ -59,10 +64,14 @@ export function SearchResults({
                 className={styles.searchArticle}
                 onClick={() => handleSelectPlaylist(playlists[0])}
               >
-                <div className={styles.playIconContainer} onClick={() => handlePlayTrack(playlists[0].tracks?.items[0]?.track)}>
-                  <FaPlay className={styles.icon} />
-                </div>
-
+                {firstTrack && (
+                  <div
+                    className={styles.playIconContainer}
+                    onClick={() => handlePlayTrack(firstTrack)}
+                  >
+                    <FaPlay className={styles.icon} />
+                  </div>
+                )}
                 <Image
                   width={200}
                   height={200}
@@ -70,15 +79,15 @@ export function SearchResults({
                   alt={playlists[0].name}
                   className={styles.img}
                 />
-                <p style={{ color: "#fff", fontWeight: 600 }}>{playlists[0].name}</p>
+                <p style={{ color: "#fff", fontWeight: 600 }}>
+                  {playlists[0].name}
+                </p>
               </article>
             )}
           </div>
         </main>
 
-        <figure>
- 
-        </figure>
+        <figure></figure>
       </div>
     </section>
   );
