@@ -14,7 +14,6 @@ export function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputSearchValueData, setInputSearchValueData] = useState<string>("");
 
-  // estados globais simulados
   const [view, setView] = useState("search");
   const [globalsTrackPlaying, setGlobalIsTrackPlaying] = useState(false);
   const [globalCurrentSongId, setGlobalCurrentSongId] = useState<string | null>(null);
@@ -77,6 +76,14 @@ export function Search() {
           />
         )}
       </div>
+      <div className={styles.statusBox}>
+        {globalCurrentSongId && (
+          <p className={styles.status}>🎵 Música atual: {globalCurrentSongId}</p>
+        )}
+        {globalArtistId && (
+          <p className={styles.status}>👤 Artista atual: {globalArtistId}</p>
+        )}
+      </div>
 
       <div>
         {searchMusicData ? (
@@ -89,10 +96,10 @@ export function Search() {
           />
         ) : (
           <FeatPlaylists
-          setView={setView}
-          setGlobalIsTrackPlaying={setGlobalIsTrackPlaying}
-          setGlobalCurrentSongId={setGlobalCurrentSongId}
-          setGlobalArtistId={setGlobalArtistId}
+            setView={setView}
+            setGlobalCurrentSongId={setGlobalCurrentSongId}
+            setGlobalIsTrackPlaying={setGlobalIsTrackPlaying}
+            setGlobalArtistId={setGlobalArtistId}
           />
         )}
       </div>

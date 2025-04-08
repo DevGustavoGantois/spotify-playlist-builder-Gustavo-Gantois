@@ -56,7 +56,20 @@
     flex-wrap: wrap;
     margin: 0 1.5rem;
   }
+
+  .statusBox {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #1db95410;
+    border-radius: 8px;
+  }
   
+  .status {
+    color: #fff;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
   .img {
     border-radius: 50%;
     width: 4rem;

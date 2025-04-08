@@ -11,7 +11,7 @@ const scopes = [
   "user-modify-playback-state",
 ].join(",");
 
-const params = {
+const params = {  
   scope: scopes,
 };
 
