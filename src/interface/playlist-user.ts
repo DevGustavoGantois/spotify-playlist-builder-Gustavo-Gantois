@@ -3,11 +3,19 @@ export interface Artist {
     name: string;
   }
   
-export interface Playlist {
-  id: string;
-  images: {url: string}[];
-  name: string;
-}
+  export interface Playlist {
+    id: string;
+    name: string;
+    images: { url: string }[];
+    tracks: {
+      items: {
+        track: {
+          id: string;
+          uri: string;
+        };
+      }[];
+    };
+  }
   
 
   export interface SongProps {
