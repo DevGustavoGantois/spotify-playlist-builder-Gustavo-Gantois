@@ -1,7 +1,9 @@
+import styles from '@/styles/artist.module.css';
+
 export function Artist() {
     return (
-        <div>
+        <section className={styles.artistSection}>
             
-        </div>
+        </section>
     )
 }
