@@ -11,6 +11,7 @@ export function FeatPlaylists({ setView, setGlobalIsTrackPlaying }: FeatPlaylist
 
   function selectMusicPlaylist(playlist: PlaylistProps) {
     setView("playlist");
+    setView(playlist.id)
     setGlobalIsTrackPlaying(true);
   }
 

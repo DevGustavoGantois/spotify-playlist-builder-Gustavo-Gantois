@@ -16,7 +16,7 @@ export function Search() {
 
   // estados globais simulados
   const [view, setView] = useState("search");
-  const [globalIsTrackPlaying, setGlobalIsTrackPlaying] = useState(false);
+  const [globalsTrackPlaying, setGlobalIsTrackPlaying] = useState(false);
   const [globalCurrentSongId, setGlobalCurrentSongId] = useState<string | null>(null);
   const [globalArtistId, setGlobalArtistId] = useState<string | null>(null);
 
