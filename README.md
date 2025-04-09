@@ -165,5 +165,3 @@ Apesar de constar nos requisitos bônus, **não houve tempo hábil para implemen
 Sou um profissional apaixonado por tecnologia, determinado a evoluir e a fazer a diferença.
 
 **Bora pra cima! 🚀**
-```
-
