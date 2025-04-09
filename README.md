@@ -87,3 +87,20 @@ src/
 🧱 Utilização do padrão k-bab-case com prefixo c- para nomear componentes.
 
 🧾 Também criei uma pasta dedicada para interfaces TypeScript, utilizada para tipar todas as respostas vindas da API do Spotify, garantindo organização e segurança de tipo em todo o projeto.
+
+
+## 🧪 Testes Unitários
+
+Apesar da solicitação de testes unitários, devido à correria e ao curto prazo para entrega, **não consegui implementá-los nos requisitos bonus repositório do fork no GitHub**.
+
+Acredito que com mais tempo, seria plenamente possível evoluir a aplicação com testes bem estruturados, utilizando ferramentas como **Jest** e **Testing Library** para cobrir os fluxos principais e garantir estabilidade do código.
+
+---
+
+## 🤝 Considerações Finais
+
+Independente do resultado desse teste e entrevista, este projeto foi **um grande aprendizado e extremamente realizador para mim**. Foi meu primeiro contato real com o **NextAuth.js** e integração com a **Spotify Web API**, e pude aplicar na prática diversos conhecimentos técnicos que venho estudando.
+
+Sou uma pessoa que **busca constantemente aprender, evoluir e crescer profissionalmente**, e agradeço muito pela oportunidade de participar deste desafio.
+
+**Muito obrigado pela oportunidade desde já, sou um cara que quer aprender, visa em crescer profissionalmente e um dia ser diferente, bora pra cima meus colegas!**
