@@ -1,5 +1,5 @@
 import {
-  Artist,
+  ArtistProps,
   Playlist,
   SearchResultsProps,
 } from "@/interface/playlist-user";
@@ -46,7 +46,7 @@ export function SearchResults({
     setGlobalCurrentSongId(playlist && playlist.id);
   }
 
-  function handleSelectArtist(artist: Artist) {
+  function handleSelectArtist(artist: ArtistProps) {
     setView("artist");
     setGlobalArtistId(artist && artist.id);
   }

@@ -1,7 +1,7 @@
 // src/components/Song.tsx
 import React from "react";
 import styles from '@/styles/song.module.css';
-import { Artist, SongProps } from "@/interface/playlist-user";
+import { ArtistProps, SongProps } from "@/interface/playlist-user";
 
 export function Song({
   sno,
@@ -22,7 +22,7 @@ export function Song({
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   }
 
-  function selectArtist(artist: Artist) {
+  function selectArtist(artist: ArtistProps) {
     setGlobalArtistId(artist.id);
     setView("artist");
   }
@@ -42,7 +42,7 @@ export function Song({
         <div>
           <p className={styles.trackName}>{track.name}</p>
           <p className={styles.artists}>
-            {track.artists.map((artist: Artist, i: number) => (
+            {track.artists.map((artist: ArtistProps, i: number) => (
               <React.Fragment key={artist.id}>
                 <span
                   onClick={(e) => {
