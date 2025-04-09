@@ -66,6 +66,19 @@ Este foi meu **primeiro projeto utilizando o NextAuth.js** em conjunto com o OAu
 - Um dos erros mais frequentes foi o `INVALID_CLIENT: Invalid redirect URI`.
 - Para resolvê-lo, foi necessário registrar corretamente as URIs de callback no [Spotify Developer Dashboard], tanto para o ambiente local quanto para produção:
 
+## ⚠️ Desafios com a Versão do Next.js
+
+Por estar habituado a trabalhar com o **Next.js 14 ou superior**, inicialmente enfrentei dificuldades ao adaptar o projeto para a **versão 13.3**, especialmente por conta da estrutura baseada em `pages/` ao invés do novo sistema `app/` (App Router), com o qual já estava mais familiarizado.
+
+### 🧩 Desafios Técnicos Enfrentados:
+- Reaprender a estrutura tradicional do Next.js com roteamento via `pages/`.
+- Ajustar minha lógica mental e técnica para lidar com o padrão antigo de rotas e organização de arquivos.
+- Tive que reiniciar o repositório **três vezes** durante o desenvolvimento, buscando compreender corretamente a **configuração do NextAuth.js** para compatibilidade com o Next 13.3.
+- Encontrei dificuldades ao tentar aplicar padrões recentes (Next.js 15.2 + NextAuth) baseando-me na documentação mais atualizada, que difere significativamente da estrutura e métodos usados na versão 13.3.
+
+> 📚 **Resumo:** O processo exigiu paciência, estudo e resiliência. Apesar dos desafios, consegui absorver bastante conhecimento sobre versões anteriores do Next.js e me adaptar à estrutura proposta no desafio com sucesso.
+
+
 ```env
 http://localhost:3000/api/auth/callback/spotify
 https://sua-url.vercel.app/api/auth/callback/spotify
