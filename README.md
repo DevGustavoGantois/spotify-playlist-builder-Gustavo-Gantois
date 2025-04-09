@@ -118,7 +118,7 @@ function fetchPrivatePlaylists() {}
 
 ```env
 http://localhost:3000/api/auth/callback/spotify
-https://sua-url.vercel.app/api/auth/callback/spotify
+https://spotify-builder-gustavo-gantois-gp-engenharia.vercel.app/api/auth/callback/spotify
 
 src/
 ├── pages/
