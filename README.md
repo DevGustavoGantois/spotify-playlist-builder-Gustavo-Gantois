@@ -1,30 +1,28 @@
 🎧 Spotify Builder - Plataforma de integração com a API do Spotify
-Este projeto foi desenvolvido como parte de um desafio técnico para a GP Engenharia, com o objetivo de criar uma plataforma moderna e funcional integrada à API do Spotify. A aplicação permite autenticação de usuários via Spotify, acesso a playlists privadas, leitura de dados de reprodução e uma interface inspirada na original do Spotify.
-
+<p>Este projeto foi desenvolvido como parte de um desafio técnico para a <strong>GP Engenharia</strong>, com o objetivo de criar uma plataforma moderna e funcional integrada à <strong>API do Spotify</strong>. A aplicação permite autenticação de usuários via Spotify, acesso a playlists privadas, leitura de dados de reprodução e uma interface inspirada na original do Spotify.</p>
 🛠️ Processo de Instalação do Projeto
-Para iniciar o projeto, utilizei o seguinte comando com uma versão específica do Next.js (13.3):
-
-lua
+<p>Para iniciar o projeto, utilizei o seguinte comando com uma versão específica do Next.js (13.3):</p>
+bash
 Copiar
 Editar
 npx create-next-app@13.3 spotify-builder
 Perguntas feitas durante a criação do projeto:
 
-Would you like to use TypeScript?
-✅ Yes – O projeto foi desenvolvido utilizando TypeScript.
+✅ Would you like to use TypeScript?
 
-Would you like to use ESLint?
-✅ Yes – ESLint foi utilizado para padronização e análise de código.
+<p>Sim – O projeto foi desenvolvido utilizando TypeScript.</p>
+✅ Would you like to use ESLint?
 
-Would you like to use Tailwind CSS?
-❌ No – Optei por usar CSS Modules ao invés de Tailwind.
+<p>Sim – ESLint foi utilizado para padronização e análise de código.</p>
+❌ Would you like to use Tailwind CSS?
 
-Would you like to use src/ directory?
-✅ Yes – Utilizei a estrutura com a pasta src para organização do projeto.
+<p>Não – Optei por usar CSS Modules ao invés de Tailwind.</p>
+✅ Would you like to use src/ directory?
 
-Would you like to use experimental app/ directory (beta)?
-❌ No – O projeto utilizou a estrutura tradicional baseada em pages/.
+<p>Sim – Utilizei a estrutura com a pasta <code>src</code> para organização do projeto.</p>
+❌ Would you like to use experimental app/ directory (beta)?
 
+<p>Não – O projeto utilizou a estrutura tradicional baseada em <code>pages/</code>.</p>
 🚀 Tecnologias Utilizadas
 Next.js 13.3
 
@@ -44,65 +42,51 @@ Spotify Web API
 
 ✅ Funcionalidades
 Login via Spotify
-Página de login customizada acessível em /home.
+Página de login customizada acessível em /home
 
-Redirecionamento automático após login, com persistência dos tokens de autenticação.
+Redirecionamento automático após login
+
+Persistência dos tokens de autenticação
 
 Gestão de Sessão com Tokens
-Armazenamento e uso dos accessToken e refreshToken no JWT.
+Armazenamento e uso de accessToken e refreshToken no JWT
 
-Lógica de refresh automático ao expirar o token, garantindo uma experiência contínua.
+Lógica de refresh automático ao expirar o token
 
 Leitura e Gerenciamento de Playlists
-Leitura de playlists privadas e colaborativas do usuário autenticado.
+Leitura de playlists privadas e colaborativas
 
-Possibilidade de deletar e remover bibliotecas com base nas playlists selecionadas.
+Funções para deletar e remover bibliotecas com base nas playlists
 
 Reprodução Atual
-Consumo do endpoint user-read-currently-playing para capturar a faixa atual em reprodução.
+Consumo do endpoint user-read-currently-playing
 
-❗ Nota: Não consegui finalizar a funcionalidade de reproduzir a faixa diretamente, devido à complexidade de permissões e integração de controle de playback. Esse é um ponto identificado para evolução futura.
+⚠️ Nota: Não finalizei a funcionalidade de reproduzir a faixa diretamente por limitações da API
 
 Interface Inspirada no Spotify
-Interface visualmente semelhante à do Spotify, adaptada de forma responsiva e funcional.
+Interface responsiva e funcional
 
-Aproximadamente 90% de similaridade com a original, priorizando usabilidade e lógica.
+Cerca de 90% de similaridade com a original
 
 🎨 Estilização e Responsividade
-Estilização feita com CSS Modules, sem o uso de frameworks como Tailwind.
-
-Utilização das bibliotecas Lucide-react e React-icons para reforçar a estética moderna.
-
-Houve desafios ao trabalhar com CSS puro, especialmente na responsividade, por estar há um tempo sem usar essa abordagem.
-
+<p>A estilização foi feita com CSS Modules, sem uso de frameworks como Tailwind. Foram utilizadas as bibliotecas <strong>Lucide-react</strong> e <strong>React-icons</strong> para reforçar a estética moderna.</p> <p>Houve desafios com responsividade devido ao tempo sem trabalhar com CSS puro.</p>
 🧠 Dificuldades Enfrentadas com NextAuth
 🔐 URI de Redirecionamento Inválida
-Erro comum: INVALID_CLIENT: Invalid redirect URI.
-
-Solução: registrar corretamente as URIs no Spotify Developer Dashboard para ambientes local e produção.
-
+<p>Erro comum: <strong>INVALID_CLIENT: Invalid redirect URI</strong></p> <p><strong>Solução:</strong> registrar corretamente as URIs no <em>Spotify Developer Dashboard</em> para ambientes local e produção.</p>
 ⚠️ Desafios com a Versão do Next.js
-Por estar acostumado com Next.js 14+, tive que reaprender a estrutura baseada em pages/.
-
-A documentação mais recente diverge bastante da versão usada.
-
-Precisei reinicializar o repositório três vezes para adaptar o NextAuth corretamente.
-
-📚 O processo exigiu paciência, estudo e resiliência. Apesar dos desafios, absorvi muito conhecimento sobre versões anteriores do Next.js.
-
+<p>Por estar acostumado com o Next.js 14+, precisei reaprender a estrutura baseada em <code>pages/</code>.</p> <p>A documentação mais recente diverge bastante da versão usada, e reinicializei o repositório três vezes para adaptar corretamente o NextAuth.</p> <p><strong>Resumo:</strong> Foi um processo que exigiu paciência, estudo e resiliência, mas me trouxe muito aprendizado.</p>
 🌍 Código e Commits em Inglês
-Todo o código, variáveis, funções, componentes e mensagens de commit foram escritos em inglês, pois acredito que é a língua universal da programação.
-
+<p>Todo o código, variáveis, funções, componentes e mensagens de commit foram escritos em inglês, seguindo boas práticas.</p>
 ✅ Benefícios:
-Facilita o entendimento por desenvolvedores ao redor do mundo.
 
-Segue boas práticas profissionais.
+Facilidade de entendimento global
 
-Melhora a colaboração em projetos open source.
+Melhoria na colaboração open source
 
-Garante documentação e comunicação técnica padronizada.
+Documentação técnica padronizada
 
 💡 Exemplos:
+
 tsx
 Copiar
 Editar
@@ -141,25 +125,21 @@ src/
 ├── styles/
 │   └── global.module.css           # Estilos com CSS Modules
 └── pages/api/auth/[...nextauth].ts # Configuração do NextAuth
-Utilização do padrão kebab-case com prefixo c- para nomear componentes.
-
+<p><strong>Obs:</strong> Utilizei o padrão <code>kebab-case</code> com prefixo <code>c-</code> para nomear componentes.</p>
 🧪 Testes
-Apesar de constar como requisito bônus, não houve tempo hábil para implementar testes unitários.
-
-Em versões futuras, pretendo utilizar:
-
+<p>Apesar de ser um requisito bônus, não houve tempo hábil para implementar testes unitários. Em versões futuras pretendo utilizar:</p>
 Jest
 
 Testing Library
 
 🙌 Considerações Finais
-✅ Projeto desafiador e extremamente enriquecedor.
-✅ Primeiro contato real com NextAuth.js e Spotify Web API.
-✅ Apliquei diversos conhecimentos técnicos em um projeto completo e funcional.
-✅ Estou em constante busca por aprendizado, evolução e crescimento profissional.
+✅ Projeto desafiador e extremamente enriquecedor
 
-Muito obrigado pela oportunidade!
-Sou um profissional apaixonado por tecnologia, determinado a evoluir e a fazer a diferença.
+✅ Primeiro contato real com NextAuth.js e Spotify Web API
 
+✅ Aplicação completa com diversas funcionalidades
+
+✅ Sigo em constante aprendizado e evolução
+
+<p>Muito obrigado pela oportunidade! Sou um profissional apaixonado por tecnologia, determinado a evoluir e a fazer a diferença.</p>
 Bora pra cima! 🚀
-
