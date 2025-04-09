@@ -2,7 +2,40 @@
 
 Este projeto foi desenvolvido como parte de um desafio técnico para a **GP Engenharia**, com o objetivo de criar uma plataforma moderna e funcional integrada à **API do Spotify**. A aplicação permite autenticação de usuários via Spotify, acesso a playlists privadas, leitura de dados de reprodução e uma interface inspirada na original do Spotify.
 
+## 🛠️ Processo de Instalação do Projeto
+
+Para iniciar o projeto, utilizei o seguinte comando com uma versão específica do Next.js (13.3):
+
+```bash
+npx create-next-app@13.3 spotify-builder
+
 ---
+
+📋 Perguntas feitas durante a criação do projeto:
+Would you like to use TypeScript?
+
+Yes ✅
+(O projeto foi desenvolvido utilizando TypeScript.)
+
+Would you like to use ESLint?
+
+Yes ✅
+(ESLint foi utilizado para padronização e análise de código.)
+
+Would you like to use Tailwind CSS?
+
+No ❌
+(Optei por usar CSS Modules ao invés de Tailwind.)
+
+Would you like to use src/ directory?
+
+Yes ✅
+(Utilizei a estrutura com a pasta src para organização do projeto.)
+
+Would you like to use experimental app/ directory (beta)?
+
+No ❌
+(Este projeto utilizou a estrutura baseada na pasta pages/, por ser a padrão em versões anteriores.)
 
 ## 🚀 Tecnologias Utilizadas
 
