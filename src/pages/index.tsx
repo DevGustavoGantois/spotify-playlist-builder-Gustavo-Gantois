@@ -75,11 +75,10 @@ export default function Home() {
           {searchView === "artist" && (
             <Artist
               setView={setSearchView}
-              globalArtist={artistIds}
-              setGlobalArtist={setArtistIds}
+              globalArtistId={artistIds}
+              setGlobalArtistId={setArtistIds}
               setGlobalCurrentSongId={setPlaySongId}
-              setGlobalIsTrackPlaying={setIsTrackPlaying}
-            />
+              setGlobalIsTrackPlaying={setIsTrackPlaying} id={undefined} name={''} images={[]}            />
           )}
         </div>
       </div>
