@@ -79,6 +79,38 @@ Por estar habituado a trabalhar com o **Next.js 14 ou superior**, inicialmente e
 > 📚 **Resumo:** O processo exigiu paciência, estudo e resiliência. Apesar dos desafios, consegui absorver bastante conhecimento sobre versões anteriores do Next.js e me adaptar à estrutura proposta no desafio com sucesso.
 
 
+## 🌍 Código e Commits em Inglês
+
+Optei por escrever **todo o código, nomes de variáveis, funções, componentes e mensagens de commit em inglês**, pois acredito que o inglês é a **língua universal da programação** e da tecnologia. Essa prática segue padrões adotados por empresas no mundo todo e facilita a **colaboração em projetos open source, trabalho em equipe global e futuras oportunidades profissionais**.
+
+### ✅ Benefícios de adotar o inglês no código:
+- Facilita o entendimento por desenvolvedores de qualquer lugar do mundo.
+- Segue boas práticas adotadas em projetos profissionais e colaborativos.
+- Aumenta a qualidade e padronização do código.
+- Melhora a documentação e a comunicação técnica.
+
+### 💡 Exemplos:
+
+#### Nomes de variáveis:
+```tsx
+// Em vez de:
+const usuarioAutenticado = true;
+
+// Escrito como:
+const isUserAuthenticated = true;
+
+# Em vez de:
+git commit -m "corrige bug ao carregar playlists"
+
+# Escrito como:
+git commit -m "fix: resolve bug when loading playlists"
+
+// Em vez de:
+function buscarPlaylistsPrivadas() {}
+
+// Escrito como:
+function fetchPrivatePlaylists() {}
+
 ```env
 http://localhost:3000/api/auth/callback/spotify
 https://sua-url.vercel.app/api/auth/callback/spotify
