@@ -1,7 +1,7 @@
 import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import { FaSpotify } from 'react-icons/fa'
-import styles from '@/styles/Login.module.css'
+import styles from '@/styles/login.module.css'
 
 export default function Home() {
   return (
