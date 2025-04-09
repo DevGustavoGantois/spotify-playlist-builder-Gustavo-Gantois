@@ -1,24 +1,25 @@
 "use client";
 import { Inter } from 'next/font/google';
 import { useState, useEffect } from 'react';
-import { useSession } from "next-auth/react"; // ✅ IMPORTANTE
+import { useSession } from "next-auth/react";
 import styles from '@/styles/index.module.css';
 import { Sidebar } from '@/components/c-sidebar';
 import { PlaylistView } from '@/components/c-playlist-view';
 import { Search } from '@/components/c-search';
 import { Library } from '@/components/c-library';
-import { Artist } from '@/components/c-artist';
 import { Player } from '@/components/c-player';
+import { Artist } from '@/components/c-artist';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const [searchView, setSearchView] = useState("search");
   const [playlistUserId, setPlaylistUserId] = useState<string | null>(null);
-  const [artistsUserId, setArtistsUserId] = useState<string | null>(null);
+  const [artistIds, setArtistIds] = useState<any | string[]>([]);
   const [playSongId, setPlaySongId] = useState<string | null>(null);
   const [trackUserPlayingMusic, setTrackUserPlayingMusic] = useState<string | null>(null);
   const [playlists, setPlaylists] = useState<any[]>([]);
+  const [isTrackPlaying, setIsTrackPlaying] = useState(false);
 
   const { data: session } = useSession();
 
@@ -49,7 +50,7 @@ export default function Home() {
   }, [session]);
 
   return (
-    <main className={`${inter.className}`}>
+    <main className={inter.className}>
       <div className={styles.div}>
         <div className={styles.sidebarContainer}>
           <Sidebar
@@ -71,7 +72,15 @@ export default function Home() {
           {searchView === "library" && (
             <Library playlists={playlists} selectPlaylist={selectPlaylist} />
           )}
-          {searchView === "artist" && <Artist />}
+          {searchView === "artist" && (
+            <Artist
+              setView={setSearchView}
+              globalArtist={artistIds}
+              setGlobalArtist={setArtistIds}
+              setGlobalCurrentSongId={setPlaySongId}
+              setGlobalIsTrackPlaying={setIsTrackPlaying}
+            />
+          )}
         </div>
       </div>
 

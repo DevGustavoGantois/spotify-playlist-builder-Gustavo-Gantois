@@ -1,13 +1,19 @@
-export interface Artist {
-    id: string;
+export interface ArtistProps {
+    id: string | any;
     name: string;
     images: {
       url: string;
     }[] 
+    globalArtistId: string;
+    setView: React.Dispatch<React.SetStateAction<string>>;
+    setGlobalArtistId: React.Dispatch<React.SetStateAction<string>>;
+    setGlobalCurrentSongId: (id: string) => void;
+    setGlobalIsTrackPlaying: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
   export interface Track {
       id: string;
+      uri: string;
       duration_ms: number;
       name: string;
       album: {
@@ -35,11 +41,13 @@ export interface Artist {
       }[];
     };
   }
+
   
 
   export interface SongProps {
     sno: number;
     track: any;
+    searchView: string;
     setView: React.Dispatch<React.SetStateAction<string>>;
     setGlobalIsTrackPlaying: React.Dispatch<React.SetStateAction<boolean>>;
     setGlobalCurrentSongId: (id: string) => void;
@@ -49,6 +57,7 @@ export interface Artist {
     name: string;
     owner: string;
   }
+  
   export interface FeatPlaylistsProps {
     setView: React.Dispatch<React.SetStateAction<string>>;
     setGlobalIsTrackPlaying: React.Dispatch<React.SetStateAction<boolean>>;
@@ -58,7 +67,7 @@ export interface Artist {
 
   export interface SearchResultsProps {
     searchMusicData: any;
-    artists: Artist[];
+    artists: ArtistProps[];
     musicSongs: Track[];
     playlists: Playlist[];
     setView: React.Dispatch<React.SetStateAction<string>>;
