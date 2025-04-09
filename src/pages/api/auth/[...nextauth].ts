@@ -81,7 +81,7 @@ export const authOptions: NextAuthOptions = {
   ],
   secret: process.env.JWT_SECRET,
   pages: {
-    signIn: "/login",
+    signIn: "/home",
   },
   callbacks: {
     async jwt({ token, account }: { token: JWT; account?: Account | null }) {
